@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FuncLab\IlyaTestMet.csproj" />
+    <ProjectReference Include="..\IlyaTestMet\IlyaTestMet.csproj" />
   </ItemGroup>
 
 </Project>

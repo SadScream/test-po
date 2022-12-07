@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FuncLab
+namespace IlyaTestMet
 {
     public class Program
     {

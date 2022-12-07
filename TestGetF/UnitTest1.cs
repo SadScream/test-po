@@ -1,8 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using FuncLab;
+using IlyaTestMet;
 using System;
 
-namespace FuncLabTest
+namespace TestGetF
 {
     [TestClass]
     public class UnitTest1
