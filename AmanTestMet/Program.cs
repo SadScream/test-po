@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Laba2 {
+namespace AmanTestMet {
     public class Program {
 
         public static double IlyaGetF(double b, double c, double x) {

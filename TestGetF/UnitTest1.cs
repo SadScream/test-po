@@ -1,8 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Laba2;
+using AmanTestMet;
 using System;
 
-namespace TestProject {
+namespace TestGetF {
     [TestClass]
     public class UnitTest1 {
         [TestMethod]
