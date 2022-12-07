@@ -1,0 +1,49 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Laba2 {
+    public class Program {
+
+        public static double IlyaGetF(double b, double c, double x) {
+            if (b * b == 100) throw new DivideByZeroException("B != 10");
+            if (c > -9 && c < -5) throw new Exception("C > -5 and < -9");
+            if (c == -9 || c == -5) throw new DivideByZeroException("C != -9 or C != -5");
+            return 100 / (b * b - 100) * Math.Sin(4 * x / Math.Sqrt(c * c + 14 * c + 45));
+        }
+        public static double GetF(double x, double b, double c) {
+            if (b == 12 || b == 1) throw new DivideByZeroException("B != 12 or b != 1");
+            if (c < 20) throw new Exception("C < 20");
+            return (Math.Sqrt(c - 20) / (Math.Pow(b, 2) - 13 * b + 12)) * Math.Pow(Math.Sin(x), 2);
+        }
+
+        public static double[] GetArray(int n, double x1, double x2, double b, double c) {
+            if (x2 > x1) throw new Exception("x2 должен быть больше или равен x1");
+            double step = 0;
+
+            if (n == 1) {
+                step = x1;
+                double[] ans = new double[] { step };
+                return ans;
+            }else {
+                step = Math.Abs(x1 - x2) / (n - 1);
+            }
+
+            double[] answer = new double [n];
+
+            for (int i = 0; i < n; i++) {
+                answer[i] = GetF(x1, b, c);
+                x1 += step;
+            }
+
+            return answer;
+        }
+
+        static void Main(string[] args) {
+            //Console.WriteLine(IlyaGetF(8, 1, 3));
+            double[] arr = GetArray(5, 1, 5, 8, 21);
+            foreach (double num in arr){
+                Console.WriteLine(num);
+            }
+        }
+    }
+}
