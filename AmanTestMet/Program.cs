@@ -17,7 +17,7 @@ namespace AmanTestMet {
         }
 
         public static double[] GetArray(int n, double x1, double x2, double b, double c) {
-            if (x2 > x1) throw new Exception("x2 должен быть больше или равен x1");
+            if (x2 < x1) throw new Exception("x2 должен быть больше или равен x1");
             double step = 0;
 
             if (n == 1) {
