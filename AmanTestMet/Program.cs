@@ -21,8 +21,7 @@ namespace AmanTestMet {
             double step = 0;
 
             if (n == 1) {
-                step = x1;
-                double[] ans = new double[] { step };
+                double[] ans = new double[] { GetF(x1, b, c) };
                 return ans;
             }else {
                 step = Math.Abs(x1 - x2) / (n - 1);

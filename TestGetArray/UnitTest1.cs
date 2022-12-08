@@ -82,8 +82,8 @@ namespace TestGetArray
         {
             double[] expected = new double[]
             {
-                -0,000799687,
-                -0,00103851,
+                -0.000799687,
+                -0.00103851,
             };
             var actual = Program.GetArray(2, 1, 5, 5, 20.001);
             CollectionAssert.AreEqual(expected, actual, new Comparer());
@@ -94,7 +94,7 @@ namespace TestGetArray
         {
             double[] expected = new double[]
             {
-                -0,055555556,
+                -0.055555556,
             };
             var actual = Program.GetArray(1, 1.570796327, 1.570796327, 3, 21);
             CollectionAssert.AreEqual(expected, actual, new Comparer());
@@ -105,7 +105,7 @@ namespace TestGetArray
         {
             double[] expected = new double[]
             {
-                -0,055555556,
+                -0.055555556,
             };
             var actual = Program.GetArray(1, -1.570796327, -1.570796327, 3, 21);
             CollectionAssert.AreEqual(expected, actual, new Comparer());
@@ -131,11 +131,11 @@ namespace TestGetArray
         {
             double[] expected = new double[]
             {
-                64.37616313,
-                75.17245299,
-                1.810606116,
-                52.07291726,
-                83.60176057
+                64.36445944,
+                75.15878651,
+                1.810276945,
+                52.06345031,
+                83.58656163
             };
             var actual = Program.GetArray(5, 1, 5, 0.999, 21);
             CollectionAssert.AreEqual(expected, actual, new Comparer());
@@ -161,11 +161,11 @@ namespace TestGetArray
         {
             double[] expected = new double[]
             {
-                64.37616313,
-                75.17245299,
-                1.810606116,
-                52.07291726,
-                83.60176057
+                64.36445944,
+                75.15878651,
+                1.810276945,
+                52.06345031,
+                83.58656163
             };
             var actual = Program.GetArray(5, 1, 5, 12.001, 21);
             CollectionAssert.AreEqual(expected, actual, new Comparer());
@@ -180,6 +180,15 @@ namespace TestGetArray
             };
             var actual = Program.GetArray(1, 0, 0, 3, 21);
             CollectionAssert.AreEqual(expected, actual, new Comparer());
+        }
+
+        public static void print(double[] val)
+        {
+            foreach (double v in val)
+            {
+                Console.Write($"{v} ");
+            }
+            Console.WriteLine();
         }
     }
 }
