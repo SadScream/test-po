@@ -14,7 +14,8 @@ namespace IlyaTestMet
 			double B = AskForB();
             double C = AskForC();
 
-			var fValues = GetArray(N, B, C);
+			(double x1, double x2) = AskForXRange(N);
+            var fValues = GetArray(N, x1, x2, B, C);
 			var filePath = AskForFile();
 
             File.WriteAllLines(filePath, fValues
@@ -34,24 +35,25 @@ namespace IlyaTestMet
                 Math.Sin(4 * x / Math.Sqrt(c * c + 14 * c + 45));
         }
 
-		public List<double> GetArray(int N, double B, double C)
-		{
-			double[] arr = AskForXRange(N);
-			var fValues = CalculateFunction(arr, B, C);
-
-			return fValues;
-		}
-
-		public List<double> CalculateFunction(double[] arr, double B, double C)
+		public double[] GetArray(int N, double x1, double x2, double B, double C)
         {
-			List<double> fValues = new List<double>();
+            if (x2 <= x1 && N != 1)
+            {
+				throw new Exception($"X2({x2}) должен быть больше X1({x1})");
+            }
 
-			foreach (double x in arr)
-			{
-				fValues.Add(Function(B, C, x));
-			}
+            if (N == 1)
+                return new double[] { Function(B, C, x1) };
 
-			return fValues;
+            List<double> fValues = new List<double>();
+            double step = (x2 - x1) / (N - 1);
+
+            for (int i = 0; i < N; i++)
+            {
+                fValues.Add(Function(B, C, x1 + step * i));
+            }
+
+			return fValues.ToArray();
 		}
 
 		public int AskForN()
@@ -69,21 +71,26 @@ namespace IlyaTestMet
 			return AskForVariable("C", C_ValueChecker, null);
 		}
 
-		private double[] AskForXRange(int N)
+		private (double, double) AskForXRange(int N)
         {
             while (true)
             {
-                double x1, x2;
+                double x1, x2 = 0.0;
 
 				try
                 {
-					Console.WriteLine("Введите X1 (включительно): ");
+					Console.WriteLine($"Введите X{(N == 1 ? "" : "1  (включительно)")}: ");
 					string x1_FromInput = Console.ReadLine();
 					x1 = CheckNumberValue(x1_FromInput);
 
-					Console.WriteLine("Введите X2 (включительно): ");
-					string x2_FromInput = Console.ReadLine();
-					x2 = CheckNumberValue(x2_FromInput);
+					if (N > 1)
+					{
+						Console.WriteLine("Введите X2 (включительно): ");
+						string x2_FromInput = Console.ReadLine();
+						x2 = CheckNumberValue(x2_FromInput);
+					}
+					else if (N == 1)
+						x2 = x1;
 				}
                 catch (Exception e)
                 {
@@ -91,36 +98,7 @@ namespace IlyaTestMet
 					continue;
 				}
 
-				if (x2 <= x1 && N != 1)
-                {
-                    Console.WriteLine($"X2({x2}) должен быть больше X1({x1}), повторите ввод");
-                    continue;
-                }
-
-				if (N > 1 && x2 == x1)
-                {
-					Console.WriteLine($"Когда N > 1, x2 должен быть больше x1");
-					continue;
-				}
-
-				if (N == 1 && x2 != x1)
-                {
-					Console.WriteLine($"Когда N = 1, x2 должен быть равен x1");
-					continue;
-				}
-
-				double[] XArr = new double[N];
-				double step = (x2 - x1) / N;
-
-				if (N == 1)
-					return new double[] { x1 };
-
-				for (int i = 0; i < N; i++)
-				{
-					XArr[i] = x1 + step * (i + 1);
-				}
-
-				return XArr;
+				return (x1, x2);
 			}
         }
 
