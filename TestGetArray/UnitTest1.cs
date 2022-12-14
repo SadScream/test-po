@@ -174,6 +174,7 @@ namespace TestGetArray
         }
 
         [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
         public void TestMethod12()
         {
             Calculations arrayExpected = new Calculations();
