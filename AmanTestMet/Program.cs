@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
 
-namespace AmanTestMet {
+namespace AmanTestMet
+{
     public class Program {
 
         public static double IlyaGetF(double b, double c, double x) {
@@ -18,12 +19,15 @@ namespace AmanTestMet {
 
         public static double[] GetArray(int n, double x1, double x2, double b, double c) {
             if (x2 < x1) throw new Exception("x2 должен быть больше или равен x1");
-            double step = 0;
+            if (n <= 0) throw new Exception("n должен быть больше 0");
+
+            double step;
 
             if (n == 1) {
                 double[] ans = new double[] { GetF(x1, b, c) };
                 return ans;
-            }else {
+            }
+            else {
                 step = Math.Abs(x1 - x2) / (n - 1);
             }
 
@@ -37,12 +41,30 @@ namespace AmanTestMet {
             return answer;
         }
 
+        public static void WriteToFile(string name, double[] values) {
+            if (name.IndexOfAny(Path.GetInvalidFileNameChars()) != -1) {
+                throw new Exception("Имя файла содержит не разрешенные символы");
+            } else
+            {
+                string filePath = Path.Combine(Directory.GetCurrentDirectory(), name + ".txt");
+
+                using (StreamWriter outputFile = new StreamWriter(filePath)) {
+                    foreach (double line in values)
+                    {
+                        outputFile.WriteLine(line);
+                    }
+                }
+            } 
+        }
+
         static void Main(string[] args) {
             //Console.WriteLine(IlyaGetF(8, 1, 3));
-            double[] arr = GetArray(5, 1, 5, 8, 21);
-            foreach (double num in arr){
-                Console.WriteLine(num);
-            }
+            //double[] arr = GetArray(5, 1, 5, 8, 21);
+            //foreach (double num in arr){
+            //    Console.WriteLine(num);
+            //}
+            double[] testArr = new double[] { 1, 2, 3, 4, 5 };
+            WriteToFile("test",  testArr);
         }
     }
 }

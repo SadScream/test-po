@@ -20,6 +20,15 @@ namespace TestGetArray
     [TestClass]
     public class UnitTest1
     {
+        public static void print(double[] val)
+        {
+            foreach (double v in val)
+            {
+                Console.Write($"{v} ");
+            }
+            Console.WriteLine();
+        }
+
         [TestMethod]
         public void TestMethod1()
         {
@@ -97,6 +106,8 @@ namespace TestGetArray
                 -0.055555556,
             };
             var actual = Program.GetArray(1, 1.570796327, 1.570796327, 3, 21);
+            print(expected);
+            print(actual);
             CollectionAssert.AreEqual(expected, actual, new Comparer());
         }
 
@@ -180,15 +191,6 @@ namespace TestGetArray
             };
             var actual = Program.GetArray(1, 0, 0, 3, 21);
             CollectionAssert.AreEqual(expected, actual, new Comparer());
-        }
-
-        public static void print(double[] val)
-        {
-            foreach (double v in val)
-            {
-                Console.Write($"{v} ");
-            }
-            Console.WriteLine();
         }
     }
 }
