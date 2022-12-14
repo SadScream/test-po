@@ -9,6 +9,15 @@ namespace TestGetArray
     [TestClass]
     public class UnitTest1
     {
+        public static void print(double[] val)
+        {
+            foreach (double v in val)
+            {
+                Console.Write($"{v} ");
+            }
+            Console.WriteLine();
+        }
+
         [TestMethod]
         public void TestMethod1()
         {
@@ -21,15 +30,6 @@ namespace TestGetArray
             {
                 Assert.AreEqual(arrayActual[i], array[i], 0.0001);
             }
-        }
-
-        public static void print(double[] val)
-        {
-            foreach (double v in val)
-            {
-                Console.Write($"{v} ");
-            }
-            Console.WriteLine();
         }
 
         [TestMethod]
