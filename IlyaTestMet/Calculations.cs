@@ -16,10 +16,9 @@ namespace IlyaTestMet
 
 			(double x1, double x2) = AskForXRange(N);
             var fValues = GetArray(N, x1, x2, B, C);
-			var filePath = AskForFileName();
+			var filePath = FileModule.AskForFileName();
 
-            File.WriteAllLines(filePath, fValues
-				.Select(x => Convert.ToString(x)));
+            FileModule.WriteToFile(filePath, fValues);
 		}
 
         public double Function(double b, double c, double x)
@@ -75,35 +74,6 @@ namespace IlyaTestMet
 		{
 			return AskForVariable("C", C_ValueChecker, null);
 		}
-
-        /// <summary>
-        /// В бесконечном цикле просит ввести название файла до тех пор,
-        /// пока не будет введено корректное название.
-        /// </summary>
-        /// <returns>Полный путь к файлу, относительно запущенного экзешника</returns>
-        public string AskForFileName()
-        {
-            while (true)
-            {
-                string filePath;
-
-                try
-                {
-                    Console.WriteLine($"Введите название файла: ");
-                    string filename = Console.ReadLine();
-
-                    FilenameChecker(filename);
-                    filePath = Path.Combine(Directory.GetCurrentDirectory(), filename);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.Message);
-                    continue;
-                }
-
-                return filePath;
-            }
-        }
 
         /// <summary>
         /// В бесконечном цикле просит ввести значение промежутка X1:X2 до тех пор,
@@ -195,23 +165,6 @@ namespace IlyaTestMet
 					Console.WriteLine(e.Message);
 				}
 			}
-		}
-
-        /// <summary>
-        /// Проверяет название файла по 2 критерям:
-        ///		1. Не является ли оно пустым
-        ///		2. Не состоит ли оно из запрещенных символов
-        ///	Если название не удовлетворяет критерям, вызывается ошибка
-        /// </summary>
-        /// <param name="filename"></param>
-        /// <exception cref="Exception">Неверное имя файла</exception>
-        private void FilenameChecker(string filename)
-		{
-			var isValid = !string.IsNullOrEmpty(filename) &&
-			  filename.IndexOfAny(Path.GetInvalidFileNameChars()) < 0;
-
-			if (!isValid)
-				throw new Exception("Неверное имя файла");
 		}
 
         private void N_ValueChecker(double N)
