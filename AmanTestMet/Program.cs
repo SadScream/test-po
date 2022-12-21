@@ -42,19 +42,32 @@ namespace AmanTestMet
         }
 
         public static void WriteToFile(string name, double[] values) {
-            if (name.IndexOfAny(Path.GetInvalidFileNameChars()) != -1) {
-                throw new Exception("Имя файла содержит не разрешенные символы");
-            } else
-            {
-                string filePath = Path.Combine(Directory.GetCurrentDirectory(), name + ".txt");
+            //if (name.IndexOfAny(Path.GetInvalidFileNameChars()) != -1) {
+            //    throw new Exception("Имя файла содержит не разрешенные символы");
+            //} else
+            //{
+            //    string filePath = Path.Combine(Directory.GetCurrentDirectory(), name + ".txt");
 
-                using (StreamWriter outputFile = new StreamWriter(filePath)) {
-                    foreach (double line in values)
-                    {
-                        outputFile.WriteLine(line);
-                    }
+            //    using (StreamWriter outputFile = new StreamWriter(filePath)) {
+            //        foreach (double line in values)
+            //        {
+            //            outputFile.WriteLine(line);
+            //        }
+            //    }
+            //} 
+
+            try {
+                //Pass the filepath and filename to the StreamWriter Constructor
+                StreamWriter sw = new StreamWriter(name + ".txt");
+                foreach (double line in values)
+                {
+                    sw.WriteLine(line);
                 }
-            } 
+                sw.Close();
+            }
+            catch (Exception e) {
+                Console.WriteLine("Exception: " + e.Message);
+            }
         }
 
         static void Main(string[] args) {
@@ -64,7 +77,7 @@ namespace AmanTestMet
             //    Console.WriteLine(num);
             //}
             double[] testArr = new double[] { 1, 2, 3, 4, 5 };
-            WriteToFile("test",  testArr);
+            WriteToFile("D:\\123/test", testArr);
         }
     }
 }
