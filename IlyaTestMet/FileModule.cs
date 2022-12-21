@@ -23,6 +23,8 @@ namespace IlyaTestMet
             if (values.Length == 0)
                 throw new Exception("Массив значений не может быть пуст");
 
+            // Создает новый файл, записывает в него одну или несколько строк, затем закрывает файл.
+            // Если целевой файл уже существует, он будет переопределен.
             File.WriteAllLines(
                 filePath,
                 values.Select(x => Convert.ToString(x))
@@ -42,11 +44,11 @@ namespace IlyaTestMet
 
                 try
                 {
-                    Console.WriteLine($"Введите название файла: ");
-                    string filename = Console.ReadLine();
+                    Console.WriteLine($"Введите путь к файлу: ");
+                    string filepath = Console.ReadLine();
 
-                    FilenameChecker(filename);
-                    filePath = Path.Combine(Directory.GetCurrentDirectory(), filename);
+                    FilenameChecker(filepath);
+                    filePath = Path.Combine(Directory.GetCurrentDirectory(), filepath);
                 }
                 catch (Exception e)
                 {

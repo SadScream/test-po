@@ -21,5 +21,5 @@ namespace IlyaTestMet
             Calculations calc = new Calculations();
             calc.Run();
         }
-	}
+    }
 }
