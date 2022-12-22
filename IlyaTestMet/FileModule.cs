@@ -18,7 +18,7 @@ namespace IlyaTestMet
         /// <exception cref="Exception"></exception>
         public static void WriteToFile(string filePath, double[] values)
         {
-            FilenameChecker(filePath);
+            FilePathCkecker(filePath);
 
             if (values.Length == 0)
                 throw new Exception("Массив значений не может быть пуст");
@@ -40,15 +40,14 @@ namespace IlyaTestMet
         {
             while (true)
             {
-                string filePath;
+                string filepath;
 
                 try
                 {
                     Console.WriteLine($"Введите путь к файлу: ");
-                    string filepath = Console.ReadLine();
+                    filepath = Console.ReadLine();
 
-                    FilenameChecker(filepath);
-                    filePath = Path.Combine(Directory.GetCurrentDirectory(), filepath);
+                    FilePathCkecker(filepath);
                 }
                 catch (Exception e)
                 {
@@ -56,7 +55,33 @@ namespace IlyaTestMet
                     continue;
                 }
 
-                return filePath;
+                return filepath;
+            }
+        }
+
+        private static void FilePathCkecker(string filepath)
+        {
+            string filename = Path.GetFileName(filepath);
+
+            if (filename == string.Empty || filename == null)
+            {
+                throw new Exception("Неверное название файла");
+            }
+
+            List<string> pathParts = filepath.Split(Path.PathSeparator).ToList();
+            pathParts.RemoveAt(pathParts.Count() - 1);
+
+            var pathWithoutFilename = String.Join(Path.PathSeparator, pathParts);
+
+            FilenameChecker(filename);
+            PathChecker(pathWithoutFilename);
+        }
+
+        private static void PathChecker(string path)
+        {
+            if (!Directory.Exists(path))
+            {
+                throw new Exception("Неверный путь к файлу");
             }
         }
 
