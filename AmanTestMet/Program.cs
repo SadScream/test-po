@@ -56,18 +56,33 @@ namespace AmanTestMet
             //    }
             //} 
 
-            try {
-                //Pass the filepath and filename to the StreamWriter Constructor
-                StreamWriter sw = new StreamWriter(name + ".txt");
-                foreach (double line in values)
-                {
-                    sw.WriteLine(line);
-                }
-                sw.Close();
+            // Exceptions:
+            //   T:System.UnauthorizedAccessException:
+            //     Access is denied.
+            //
+            //   T:System.ArgumentException:
+            //     path is an empty string (""). -or- path contains the name of a system device
+            //     (com1, com2, and so on).
+            //
+            //   T:System.ArgumentNullException:
+            //     path is null.
+            //
+            //   T:System.IO.DirectoryNotFoundException:
+            //     The specified path is invalid (for example, it is on an unmapped drive).
+            //
+            //   T:System.IO.PathTooLongException:
+            //     The specified path, file name, or both exceed the system-defined maximum length.
+            //
+            //   T:System.IO.IOException:
+            //     path includes an incorrect or invalid syntax for file name, directory name, or
+            //     volume label syntax.
+            StreamWriter sw = new StreamWriter(name);
+
+            foreach (double line in values)
+            {
+                sw.WriteLine(line);
             }
-            catch (Exception e) {
-                Console.WriteLine("Exception: " + e.Message);
-            }
+            sw.Close();
         }
 
         static void Main(string[] args) {
