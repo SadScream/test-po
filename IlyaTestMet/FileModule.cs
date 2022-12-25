@@ -68,10 +68,10 @@ namespace IlyaTestMet
                 throw new Exception("Неверное название файла");
             }
 
-            List<string> pathParts = filepath.Split(Path.PathSeparator).ToList();
+            List<string> pathParts = filepath.Split("\\").ToList();
             pathParts.RemoveAt(pathParts.Count() - 1);
 
-            var pathWithoutFilename = String.Join(Path.PathSeparator, pathParts);
+            var pathWithoutFilename = String.Join("\\", pathParts);
 
             FilenameChecker(filename);
             PathChecker(pathWithoutFilename);
