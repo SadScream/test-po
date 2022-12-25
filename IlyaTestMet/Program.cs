@@ -18,8 +18,24 @@ namespace IlyaTestMet
 
 		static void Main(string[] args)
 		{
+            Program p = new Program();
+            p.Run();
+        }
+
+        public void Run()
+        {
             Calculations calc = new Calculations();
-            calc.Run();
+            InputModule inputHandler = new InputModule();
+
+            int N = inputHandler.AskForN();
+            double B = inputHandler.AskForB();
+            double C = inputHandler.AskForC();
+
+            (double x1, double x2) = inputHandler.AskForXRange(N);
+            var fValues = calc.GetArray(N, x1, x2, B, C);
+            var filePath = FileModule.AskForFileName();
+
+            FileModule.WriteToFile(filePath, fValues);
         }
     }
 }
