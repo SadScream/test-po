@@ -68,10 +68,11 @@ namespace IlyaTestMet
                 throw new Exception("Неверное название файла");
             }
 
-            List<string> pathParts = filepath.Split(Path.PathSeparator).ToList();
+            List<string> pathParts = filepath.Split("\\").ToList();
+
             pathParts.RemoveAt(pathParts.Count() - 1);
 
-            var pathWithoutFilename = String.Join(Path.PathSeparator, pathParts);
+            var pathWithoutFilename = String.Join("\\", pathParts);
 
             FilenameChecker(filename);
             PathChecker(pathWithoutFilename);
@@ -79,6 +80,7 @@ namespace IlyaTestMet
 
         private static void PathChecker(string path)
         {
+            Console.WriteLine(path);
             if (!Directory.Exists(path))
             {
                 throw new Exception("Неверный путь к файлу");

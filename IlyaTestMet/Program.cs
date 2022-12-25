@@ -18,8 +18,9 @@ namespace IlyaTestMet
 
 		static void Main(string[] args)
 		{
-            Calculations calc = new Calculations();
-            calc.Run();
+            FileModule.WriteToFile(@"C:\Users\user\Documents\file.txt", new double[]{ 1, 2 });
+            //Calculations calc = new Calculations();
+            //calc.Run();
         }
     }
 }
