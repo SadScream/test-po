@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace TestAllProgram
@@ -36,7 +37,7 @@ namespace TestAllProgram
             p.StandardOutput.ReadLine();
             p.StandardInput.WriteLine(Directory.GetCurrentDirectory() + @"\test.txt");
 
-            Task.Delay(150);
+            Thread.Sleep(150);
 
             string[] line = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\test.txt");
             double[] array = new double[] { -1.3715301244642522, -2.3853745661267767, -2.777129623674452, -2.4446282555304797, -1.4745845460417426 };
@@ -294,7 +295,7 @@ namespace TestAllProgram
             p.StandardOutput.ReadLine();
             p.StandardInput.WriteLine(Directory.GetCurrentDirectory() + @"\test.txt");
 
-            Task.Delay(150);
+            Thread.Sleep(150);
 
             string[] line = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\test.txt");
             double[] array = new double[] { -1.0965282417577722, -2.0149550743927005, -2.6061068543638726, -2.7739669347588958, -2.491270977355259 };
@@ -332,7 +333,7 @@ namespace TestAllProgram
             p.StandardOutput.ReadLine();
             p.StandardInput.WriteLine(Directory.GetCurrentDirectory() + @"\test.txt");
 
-            Task.Delay(150);
+            Thread.Sleep(150);
 
             string[] line = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\test.txt");
             double[] array = new double[] { 0.8971594702945838, 1.6485996059699282, 2.1322692442145454, 2.2696093103107375, 2.0383126184005804 };
