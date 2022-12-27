@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace IlyaTestMet
+namespace IlyaProject
 {
     public class Program
     {

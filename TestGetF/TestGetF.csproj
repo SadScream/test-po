@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IlyaTestMet\IlyaTestMet.csproj" />
+    <ProjectReference Include="..\IlyaProject\IlyaProject.csproj" />
   </ItemGroup>
 
 </Project>

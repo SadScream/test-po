@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.IO;
 
-namespace IlyaTestMet
+namespace IlyaProject
 {
     public class Calculations
     {

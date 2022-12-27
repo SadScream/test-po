@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace TestAllProgram
 {
@@ -11,7 +12,7 @@ namespace TestAllProgram
         public void TestMethod1()
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "Laba2.exe";
+            p.StartInfo.FileName = "IlyaProject.exe";
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardInput = true;
             p.StartInfo.RedirectStandardOutput = true;
@@ -33,9 +34,11 @@ namespace TestAllProgram
             p.StandardInput.WriteLine(5);
             //путь до файла
             p.StandardOutput.ReadLine();
-            p.StandardInput.WriteLine(@"D:\newDirec\test.txt");
+            p.StandardInput.WriteLine(Directory.GetCurrentDirectory() + @"\test.txt");
 
-            string[] line = File.ReadAllLines(@"D:\newDirec\test.txt");
+            Task.Delay(150);
+
+            string[] line = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\test.txt");
             double[] array = new double[] { -1.3715301244642522, -2.3853745661267767, -2.777129623674452, -2.4446282555304797, -1.4745845460417426 };
             for (int i = 0; i < line.Length; i++)
             {
@@ -47,7 +50,7 @@ namespace TestAllProgram
         public void TestMethod2()
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "Laba2.exe";
+            p.StartInfo.FileName = "IlyaProject.exe";
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardInput = true;
             p.StartInfo.RedirectStandardOutput = true;
@@ -79,7 +82,7 @@ namespace TestAllProgram
         public void TestMethod3()
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "Laba2.exe";
+            p.StartInfo.FileName = "IlyaProject.exe";
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardInput = true;
             p.StartInfo.RedirectStandardOutput = true;
@@ -101,7 +104,7 @@ namespace TestAllProgram
         public void TestMethod4()
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "Laba2.exe";
+            p.StartInfo.FileName = "IlyaProject.exe";
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardInput = true;
             p.StartInfo.RedirectStandardOutput = true;
@@ -123,7 +126,7 @@ namespace TestAllProgram
         public void TestMethod5()
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "Laba2.exe";
+            p.StartInfo.FileName = "IlyaProject.exe";
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardInput = true;
             p.StartInfo.RedirectStandardOutput = true;
@@ -148,7 +151,7 @@ namespace TestAllProgram
         public void TestMethod6()
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "Laba2.exe";
+            p.StartInfo.FileName = "IlyaProject.exe";
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardInput = true;
             p.StartInfo.RedirectStandardOutput = true;
@@ -173,7 +176,7 @@ namespace TestAllProgram
         public void TestMethod7()
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "Laba2.exe";
+            p.StartInfo.FileName = "IlyaProject.exe";
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardInput = true;
             p.StartInfo.RedirectStandardOutput = true;
@@ -198,7 +201,7 @@ namespace TestAllProgram
         public void TestMethod8()
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "Laba2.exe";
+            p.StartInfo.FileName = "IlyaProject.exe";
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardInput = true;
             p.StartInfo.RedirectStandardOutput = true;
@@ -223,7 +226,7 @@ namespace TestAllProgram
         public void TestMethod9()
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "Laba2.exe";
+            p.StartInfo.FileName = "IlyaProject.exe";
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardInput = true;
             p.StartInfo.RedirectStandardOutput = true;
@@ -248,7 +251,7 @@ namespace TestAllProgram
         public void TestMethod10()
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "Laba2.exe";
+            p.StartInfo.FileName = "IlyaProject.exe";
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardInput = true;
             p.StartInfo.RedirectStandardOutput = true;
@@ -267,7 +270,7 @@ namespace TestAllProgram
         public void TestMethod11()
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "Laba2.exe";
+            p.StartInfo.FileName = "IlyaProject.exe";
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardInput = true;
             p.StartInfo.RedirectStandardOutput = true;
@@ -289,9 +292,11 @@ namespace TestAllProgram
             p.StandardInput.WriteLine(5);
             //путь до файла
             p.StandardOutput.ReadLine();
-            p.StandardInput.WriteLine(@"D:\newDirec\test.txt");
+            p.StandardInput.WriteLine(Directory.GetCurrentDirectory() + @"\test.txt");
 
-            string[] line = File.ReadAllLines(@"D:\newDirec\test.txt");
+            Task.Delay(150);
+
+            string[] line = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\test.txt");
             double[] array = new double[] { -1.0965282417577722, -2.0149550743927005, -2.6061068543638726, -2.7739669347588958, -2.491270977355259 };
             for (int i = 0; i < line.Length; i++)
             {
@@ -303,7 +308,7 @@ namespace TestAllProgram
         public void TestMethod12()
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "Laba2.exe";
+            p.StartInfo.FileName = "IlyaProject.exe";
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardInput = true;
             p.StartInfo.RedirectStandardOutput = true;
@@ -325,9 +330,11 @@ namespace TestAllProgram
             p.StandardInput.WriteLine(5);
             //путь до файла
             p.StandardOutput.ReadLine();
-            p.StandardInput.WriteLine(@"D:\newDirec\test.txt");
+            p.StandardInput.WriteLine(Directory.GetCurrentDirectory() + @"\test.txt");
 
-            string[] line = File.ReadAllLines(@"D:\newDirec\test.txt");
+            Task.Delay(150);
+
+            string[] line = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\test.txt");
             double[] array = new double[] { 0.8971594702945838, 1.6485996059699282, 2.1322692442145454, 2.2696093103107375, 2.0383126184005804 };
             for (int i = 0; i < line.Length; i++)
             {
@@ -339,41 +346,7 @@ namespace TestAllProgram
         public void TestMethod13()
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "Laba2.exe";
-            p.StartInfo.UseShellExecute = false;
-            p.StartInfo.RedirectStandardInput = true;
-            p.StartInfo.RedirectStandardOutput = true;
-            p.StartInfo.RedirectStandardError = true;
-            p.Start();
-            //n
-            p.StandardOutput.ReadLine();
-            p.StandardInput.WriteLine(5);
-            //b
-            p.StandardOutput.ReadLine();
-            p.StandardInput.WriteLine(8);
-            //c
-            p.StandardOutput.ReadLine();
-            p.StandardInput.WriteLine(1);
-            //x1
-            p.StandardOutput.ReadLine();
-            p.StandardInput.WriteLine(1);
-            //x2
-            p.StandardOutput.ReadLine();
-            p.StandardInput.WriteLine(5);
-            //путь до файла
-            p.StandardOutput.ReadLine();
-            p.StandardInput.WriteLine(@"D:\newDirec");
-
-            Assert.IsNotNull(p.StandardError.ReadLine());
-
-            p.Kill();
-        }
-
-        [TestMethod]
-        public void TestMethod14()
-        {
-            System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "Laba2.exe";
+            p.StartInfo.FileName = "IlyaProject.exe";
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardInput = true;
             p.StartInfo.RedirectStandardOutput = true;
@@ -404,10 +377,10 @@ namespace TestAllProgram
         }
 
         [TestMethod]
-        public void TestMethod15()
+        public void TestMethod14()
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "Laba2.exe";
+            p.StartInfo.FileName = "IlyaProject.exe";
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardInput = true;
             p.StartInfo.RedirectStandardOutput = true;
@@ -430,7 +403,7 @@ namespace TestAllProgram
             p.StandardInput.WriteLine(5);
             //путь до файла
             p.StandardOutput.ReadLine();
-            p.StandardInput.WriteLine(@"D:\newDirec\con.txt");
+            p.StandardInput.WriteLine(Directory.GetCurrentDirectory() + @"\con.txt");
 
             string stringWrong = p.StandardError.ReadLine();
             p.Kill();
@@ -438,10 +411,10 @@ namespace TestAllProgram
         }
 
         [TestMethod]
-        public void TestMethod16()
+        public void TestMethod15()
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "Laba2.exe";
+            p.StartInfo.FileName = "IlyaProject.exe";
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardInput = true;
             p.StartInfo.RedirectStandardOutput = true;
@@ -466,10 +439,10 @@ namespace TestAllProgram
         }
 
         [TestMethod]
-        public void TestMethod17()
+        public void TestMethod16()
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "Laba2.exe";
+            p.StartInfo.FileName = "IlyaProject.exe";
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardInput = true;
             p.StartInfo.RedirectStandardOutput = true;
@@ -497,10 +470,10 @@ namespace TestAllProgram
         }
 
         [TestMethod]
-        public void TestMethod18()
+        public void TestMethod17()
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "Laba2.exe";
+            p.StartInfo.FileName = "IlyaProject.exe";
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardInput = true;
             p.StartInfo.RedirectStandardOutput = true;
@@ -513,10 +486,10 @@ namespace TestAllProgram
         }
 
         [TestMethod]
-        public void TestMethod19()
+        public void TestMethod18()
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "Laba2.exe";
+            p.StartInfo.FileName = "IlyaProject.exe";
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardInput = true;
             p.StartInfo.RedirectStandardOutput = true;
@@ -535,10 +508,10 @@ namespace TestAllProgram
         }
 
         [TestMethod]
-        public void TestMethod20()
+        public void TestMethod19()
         {
             System.Diagnostics.Process p = new System.Diagnostics.Process();
-            p.StartInfo.FileName = "Laba2.exe";
+            p.StartInfo.FileName = "IlyaProject.exe";
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardInput = true;
             p.StartInfo.RedirectStandardOutput = true;
