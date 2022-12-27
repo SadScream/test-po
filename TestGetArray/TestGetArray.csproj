@@ -14,6 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AmanTestMet\AmanTestMet.csproj" />
+    <ProjectReference Include="..\AmanProject\AmanProject.csproj" />
   </ItemGroup>
 </Project>

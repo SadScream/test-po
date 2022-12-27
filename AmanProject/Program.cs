@@ -1,7 +1,10 @@
-﻿using System;
+﻿using IlyaProject;
+using System;
+using System.ComponentModel;
 using System.IO;
+using System.Runtime.CompilerServices;
 
-namespace AmanTestMet
+namespace AmanProject
 {
     public class Program {
 
@@ -42,20 +45,6 @@ namespace AmanTestMet
         }
 
         public static void WriteToFile(string name, double[] values) {
-            //if (name.IndexOfAny(Path.GetInvalidFileNameChars()) != -1) {
-            //    throw new Exception("Имя файла содержит не разрешенные символы");
-            //} else
-            //{
-            //    string filePath = Path.Combine(Directory.GetCurrentDirectory(), name + ".txt");
-
-            //    using (StreamWriter outputFile = new StreamWriter(filePath)) {
-            //        foreach (double line in values)
-            //        {
-            //            outputFile.WriteLine(line);
-            //        }
-            //    }
-            //} 
-
             // Exceptions:
             //   T:System.UnauthorizedAccessException:
             //     Access is denied.
@@ -85,14 +74,55 @@ namespace AmanTestMet
             sw.Close();
         }
 
+        public static string AskForFileName()
+        {
+            StreamWriter sw = null;
+
+            while (true)
+            {
+                string filepath;
+
+                try
+                {
+                    Console.WriteLine($"Введите путь к файлу: ");
+                    filepath = Console.ReadLine();
+
+                    sw = new StreamWriter(filepath);
+                }
+                catch (Exception e)
+                {
+                    if (sw != null)
+                        sw.Close();
+
+                    Console.WriteLine("Неправильный путь к файлу: " + e.Message);
+                    continue;
+                }
+
+                sw.Close();
+                return filepath;
+            }
+        }
+
         static void Main(string[] args) {
             //Console.WriteLine(IlyaGetF(8, 1, 3));
             //double[] arr = GetArray(5, 1, 5, 8, 21);
             //foreach (double num in arr){
             //    Console.WriteLine(num);
             //}
-            double[] testArr = new double[] { 1, 2, 3, 4, 5 };
-            WriteToFile("D:\\123/test", testArr);
+            //double[] testArr = new double[] { 1, 2, 3, 4, 5 };
+            //WriteToFile("D:\\123/test", testArr);
+
+            InputModule inputHandler = new InputModule();
+
+            int N = inputHandler.AskForN();
+            double B = inputHandler.AskForB();
+            double C = inputHandler.AskForC();
+
+            (double x1, double x2) = inputHandler.AskForXRange(N);
+            var fValues = Program.GetArray(N, x1, x2, B, C);
+            var filePath = Program.AskForFileName();
+
+            Program.WriteToFile(filePath, fValues);
         }
     }
 }
